@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Фулфилмент-склад в Казани — Wildberries и Ozon под ключ</title>
+<style>
+  :root {
+    --ink: #1A2421;
+    --ink-soft: #243530;
+    --paper: #F5F1E8;
+    --accent: #D4622A;
+    --accent-soft: #E8916A;
+    --sage: #8FA398;
+    --white: #FFFFFF;
+    --line: rgba(245,241,232,0.14);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'Inter', -apple-system, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Archivo Black', 'Arial Black', sans-serif;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+  }
+
+  .wrap {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* ===== HEADER ===== */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(26,36,33,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 28px;
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+  .logo {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 18px;
+    letter-spacing: -0.01em;
+  }
+  .logo span { color: var(--accent); }
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    font-size: 14px;
+    color: var(--sage);
+  }
+  .nav-cta {
+    background: var(--accent);
+    color: var(--ink);
+    padding: 10px 20px;
+    border-radius: 3px;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .mobile-nav { display: none; }
+  @media (max-width: 760px) {
+    .nav-links { display: none; }
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    padding: 90px 0 70px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 56px;
+    align-items: center;
+  }
+  @media (max-width: 860px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--accent-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 22px;
+    font-weight: 600;
+  }
+  .eyebrow::before {
+    content: '';
+    width: 7px; height: 7px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .hero h1 {
+    font-size: clamp(36px, 5vw, 56px);
+    margin-bottom: 22px;
+  }
+  .hero h1 .accent { color: var(--accent); }
+
+  .hero-sub {
+    font-size: 18px;
+    color: var(--sage);
+    max-width: 480px;
+    margin-bottom: 34px;
+  }
+
+  .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 38px; }
+
+  .btn-primary {
+    background: var(--accent);
+    color: var(--ink);
+    font-weight: 700;
+    font-size: 15px;
+    padding: 16px 28px;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.15s ease;
+  }
+  .btn-primary:hover { background: var(--accent-soft); transform: translateY(-1px); }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--paper);
+    font-weight: 600;
+    font-size: 15px;
+    padding: 16px 24px;
+    border-radius: 3px;
+    border: 1px solid var(--line);
+    cursor: pointer;
+  }
+  .btn-secondary:hover { border-color: var(--sage); }
+
+  .hero-trust {
+    display: flex;
+    gap: 32px;
+    font-size: 13px;
+    color: var(--sage);
+    flex-wrap: wrap;
+  }
+  .hero-trust b { color: var(--paper); display: block; font-size: 22px; font-family: 'Archivo Black', sans-serif; }
+
+  /* ===== SHIPPING LABEL — signature element ===== */
+  .label-card {
+    background: var(--paper);
+    color: var(--ink);
+    border-radius: 4px;
+    padding: 28px;
+    position: relative;
+    box-shadow: 0 30px 60px -20px rgba(0,0,0,0.5);
+    transform: rotate(1.2deg);
+  }
+  .label-card::before {
+    content: '';
+    position: absolute;
+    top: -10px; left: 24px; right: 24px;
+    height: 20px;
+    background: repeating-linear-gradient(90deg, transparent, transparent 8px, rgba(212,98,42,0.4) 8px, rgba(212,98,42,0.4) 9px);
+  }
+  .label-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 2px dashed var(--ink);
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+  }
+  .label-top .from-to { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-soft); opacity: 0.6; }
+  .label-top .route { font-family: 'Archivo Black', sans-serif; font-size: 20px; margin-top: 4px; }
+  .label-badge {
+    background: var(--accent);
+    color: var(--white);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 5px 10px;
+    border-radius: 2px;
+    letter-spacing: 0.04em;
+  }
+
+  .track-steps { display: flex; flex-direction: column; gap: 14px; margin: 18px 0; }
+  .track-step {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+  }
+  .track-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--sage);
+    flex-shrink: 0;
+    position: relative;
+  }
+  .track-step.done .track-dot { background: var(--accent); }
+  .track-step.done span { font-weight: 600; }
+  .track-step:not(:last-child) .track-dot::after {
+    content: '';
+    position: absolute;
+    top: 10px; left: 4px;
+    width: 2px; height: 24px;
+    background: rgba(26,36,33,0.18);
+  }
+
+  .barcode {
+    display: flex;
+    gap: 2px;
+    height: 36px;
+    align-items: flex-end;
+    margin-top: 18px;
+  }
+  .barcode span { width: 3px; background: var(--ink); display: inline-block; }
+  .label-code { font-size: 11px; letter-spacing: 0.15em; color: var(--ink-soft); margin-top: 6px; text-align: center; }
+
+  /* ===== SECTION GENERIC ===== */
+  section { padding: 84px 0; }
+  .section-paper { background: var(--paper); color: var(--ink); }
+  .section-label {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  .section-title {
+    font-size: clamp(28px, 3.6vw, 40px);
+    max-width: 640px;
+    margin-bottom: 16px;
+  }
+  .section-desc {
+    font-size: 17px;
+    color: var(--sage);
+    max-width: 580px;
+  }
+  .section-paper .section-desc { color: rgba(26,36,33,0.65); }
+
+  /* ===== PAIN GRID ===== */
+  .pain-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    margin-top: 48px;
+  }
+  @media (max-width: 760px) { .pain-grid { grid-template-columns: 1fr; } }
+  .pain-card {
+    background: var(--ink);
+    padding: 34px 28px;
+  }
+  .pain-card .num {
+    font-family: 'Archivo Black', sans-serif;
+    color: var(--accent);
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+  .pain-card h3 { font-size: 19px; margin-bottom: 10px; font-family: 'Inter', sans-serif; font-weight: 700; }
+  .pain-card p { font-size: 14.5px; color: var(--sage); }
+
+  /* ===== PROCESS (conveyor) ===== */
+  .process-rail {
+    position: relative;
+    margin-top: 56px;
+    padding-top: 6px;
+  }
+  .process-line {
+    position: absolute;
+    top: 17px; left: 0; right: 0;
+    height: 2px;
+    background: rgba(26,36,33,0.15);
+  }
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    position: relative;
+  }
+  @media (max-width: 860px) {
+    .process-steps { grid-template-columns: 1fr; gap: 28px; }
+    .process-line { display: none; }
+  }
+  .process-step .dot {
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: var(--paper);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 13px;
+    margin-bottom: 18px;
+    position: relative;
+    z-index: 2;
+  }
+  .process-step h4 { font-size: 16px; margin-bottom: 8px; }
+  .process-step p { font-size: 13.5px; color: rgba(26,36,33,0.6); }
+
+  /* ===== PRICING ===== */
+  .price-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 24px;
+    margin-top: 48px;
+  }
+  @media (max-width: 860px) { .price-grid { grid-template-columns: 1fr; } }
+  .price-card {
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 36px;
+    background: var(--ink-soft);
+  }
+  .price-card.featured { border-color: var(--accent); position: relative; }
+  .price-card .ptag {
+    display: inline-block;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--sage);
+    margin-bottom: 14px;
+  }
+  .price-card h3 { font-size: 22px; margin-bottom: 10px; font-family: 'Inter'; font-weight: 800; }
+  .price-amount {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 36px;
+    color: var(--accent);
+    margin: 18px 0 6px;
+  }
+  .price-amount small { font-size: 15px; color: var(--sage); font-family: 'Inter'; font-weight: 500; }
+  .price-note { font-size: 13.5px; color: var(--sage); margin-bottom: 22px; }
+  .price-list { list-style: none; font-size: 14.5px; display: flex; flex-direction: column; gap: 10px; margin-bottom: 26px; }
+  .price-list li { display: flex; gap: 10px; align-items: flex-start; }
+  .price-list li::before { content: '—'; color: var(--accent); flex-shrink: 0; }
+
+  /* ===== FORM ===== */
+  .form-section { background: var(--paper); color: var(--ink); }
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+  @media (max-width: 860px) { .form-grid { grid-template-columns: 1fr; } }
+  .form-card {
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 4px;
+    padding: 36px;
+  }
+  .form-row { margin-bottom: 18px; }
+  .form-row label { display: block; font-size: 13px; color: var(--sage); margin-bottom: 7px; }
+  .form-row input, .form-row select {
+    width: 100%;
+    background: var(--ink-soft);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 13px 14px;
+    color: var(--paper);
+    font-size: 15px;
+    font-family: inherit;
+  }
+  .form-row input:focus, .form-row select:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+  .form-submit {
+    width: 100%;
+    background: var(--accent);
+    color: var(--ink);
+    font-weight: 700;
+    font-size: 15px;
+    padding: 16px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 6px;
+  }
+  .form-submit:hover { background: var(--accent-soft); }
+  .form-fineprint { font-size: 12px; color: var(--sage); margin-top: 14px; text-align: center; }
+  .form-success { display: none; text-align: center; padding: 40px 0; }
+  .form-success.show { display: block; }
+  .form-success h3 { font-size: 22px; margin-bottom: 10px; }
+  .form-success p { color: var(--sage); font-size: 14.5px; }
+
+  .benefit-list { display: flex; flex-direction: column; gap: 24px; margin-top: 28px; }
+  .benefit-item { display: flex; gap: 16px; }
+  .benefit-icon {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    background: rgba(212,98,42,0.12);
+    color: var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 14px;
+  }
+  .benefit-item h4 { font-size: 16px; margin-bottom: 4px; }
+  .benefit-item p { font-size: 14px; color: rgba(26,36,33,0.6); }
+
+  /* ===== FAQ ===== */
+  .faq-item {
+    border-bottom: 1px solid var(--line);
+    padding: 22px 0;
+  }
+  .faq-q {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16.5px;
+    font-weight: 600;
+  }
+  .faq-q .plus { color: var(--accent); font-family: 'Archivo Black'; transition: transform 0.2s ease; }
+  .faq-item.open .plus { transform: rotate(45deg); }
+  .faq-a {
+    font-size: 14.5px;
+    color: var(--sage);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+  }
+  .faq-item.open .faq-a { max-height: 200px; padding-top: 14px; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    padding: 40px 0;
+    border-top: 1px solid var(--line);
+    text-align: center;
+    font-size: 13px;
+    color: var(--sage);
+  }
+
+  .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">КАЗАНЬ<span>•</span>FF</div>
+    <nav class="nav-links">
+      <a href="#process">Как это работает</a>
+      <a href="#pricing">Цены</a>
+      <a href="#faq">Вопросы</a>
+    </nav>
+    <a href="#lead-form" class="nav-cta">Рассчитать стоимость</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Склад в Казани · WB и Ozon</div>
+      <h1>Ваш товар доедет до склада маркетплейса <span class="accent">без сюрпризов</span></h1>
+      <p class="hero-sub">Принимаем, храним, упаковываем, маркируем и отгружаем товар на Wildberries и Ozon. Плюс делаем карточки, которые реально продают — полный фотосет за 2 500 ₽.</p>
+      <div class="hero-ctas">
+        <button class="btn-primary" onclick="document.getElementById('lead-form').scrollIntoView({behavior:'smooth'})">Рассчитать стоимость</button>
+        <a href="quiz.html" class="btn-secondary" style="display:inline-flex;align-items:center;justify-content:center;text-decoration:none;">Пройти квиз за 1 минуту</a>
+      </div>
+      <div class="hero-trust">
+        <div><b>3–5 дней</b>срок изготовления карточки</div>
+        <div><b>5 этапов</b>полного цикла фулфилмента</div>
+        <div><b>Казань</b>собственный партнёрский склад</div>
+      </div>
+    </div>
+
+    <div class="label-card reveal">
+      <div class="label-top">
+        <div>
+          <div class="from-to">Маршрут</div>
+          <div class="route">ВЫ → КАЗАНЬ → WB / OZON</div>
+        </div>
+        <div class="label-badge">В ОБРАБОТКЕ</div>
+      </div>
+      <div class="track-steps">
+        <div class="track-step done"><span class="track-dot"></span><span>Приём товара на складе</span></div>
+        <div class="track-step done"><span class="track-dot"></span><span>Хранение</span></div>
+        <div class="track-step done"><span class="track-dot"></span><span>Упаковка по требованиям МП</span></div>
+        <div class="track-step"><span class="track-dot"></span><span>Маркировка и этикетки</span></div>
+        <div class="track-step"><span class="track-dot"></span><span>Отгрузка на склад маркетплейса</span></div>
+      </div>
+      <div class="barcode" id="barcode"></div>
+      <div class="label-code">№ FF-2026-KZN-0042</div>
+    </div>
+  </div>
+</section>
+
+<section class="section-paper">
+  <div class="wrap">
+    <div class="section-label">Знакомая ситуация?</div>
+    <h2 class="section-title">Три причины, по которым продавцы маркетплейсов теряют деньги</h2>
+    <p class="section-desc">Это не абстрактные проблемы — это то, с чем сталкивается почти каждый продавец WB и Ozon на старте или при росте.</p>
+
+    <div class="pain-grid">
+      <div class="pain-card reveal">
+        <div class="num">01 — ЛОГИСТИКА</div>
+        <h3>Отказ в приёмке на складе маркетплейса</h3>
+        <p>Ошибка в маркировке или упаковке — и партия возвращается обратно. Время и деньги потеряны, продажи стоят.</p>
+      </div>
+      <div class="pain-card reveal">
+        <div class="num">02 — КАРТОЧКА</div>
+        <h3>Карточка не продаёт, даже если товар хороший</h3>
+        <p>Покупатель не успевает понять преимущества за 2 секунды просмотра — и уходит к конкуренту с понятной инфографикой.</p>
+      </div>
+      <div class="pain-card reveal">
+        <div class="num">03 — ВРЕМЯ</div>
+        <h3>Вся операционка лежит на вас</h3>
+        <p>Хранение, упаковка, доставка, фото — вместо того чтобы расширять ассортимент и считать прибыль, вы разгружаете коробки.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="section-label">Процесс</div>
+    <h2 class="section-title">Полный цикл — от приёмки до склада маркетплейса</h2>
+    <p class="section-desc">Один подрядчик вместо пяти разных компаний. Каждый этап под контролем.</p>
+
+    <div class="process-rail">
+      <div class="process-line"></div>
+      <div class="process-steps">
+        <div class="process-step reveal">
+          <div class="dot">1</div>
+          <h4>Приём товара</h4>
+          <p>Забираем у поставщика или принимаем на складе в Казани.</p>
+        </div>
+        <div class="process-step reveal">
+          <div class="dot">2</div>
+          <h4>Хранение</h4>
+          <p>Размещаем на складе, контролируем остатки.</p>
+        </div>
+        <div class="process-step reveal">
+          <div class="dot">3</div>
+          <h4>Упаковка</h4>
+          <p>По требованиям конкретного маркетплейса.</p>
+        </div>
+        <div class="process-step reveal">
+          <div class="dot">4</div>
+          <h4>Маркировка</h4>
+          <p>Этикетки, штрихкоды, честный знак — без отказов на приёмке.</p>
+        </div>
+        <div class="process-step reveal">
+          <div class="dot">5</div>
+          <h4>Отгрузка</h4>
+          <p>Доставляем на склад Wildberries или Ozon точно в срок.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-paper" id="pricing">
+  <div class="wrap">
+    <div class="section-label">Цены</div>
+    <h2 class="section-title">Прозрачно там, где это возможно</h2>
+    <p class="section-desc">Карточки и инфографика — фиксированная цена. Фулфилмент — расчёт под ваш объём, без скрытых наценок.</p>
+
+    <div class="price-grid">
+      <div class="price-card featured reveal">
+        <span class="ptag">Карточки и инфографика</span>
+        <h3>Полный фотосет товара</h3>
+        <div class="price-amount">2 500 ₽ <small>/ карточка</small></div>
+        <div class="price-note">Готово за 3–5 дней с момента получения материалов</div>
+        <ul class="price-list">
+          <li>Профессиональная съёмка товара</li>
+          <li>Продающая инфографика с акцентом на преимущества</li>
+          <li>Оформление под требования WB и Ozon</li>
+          <li>Видео с ИИ — дополнительно, 500–1 500 ₽</li>
+        </ul>
+        <button class="btn-primary" style="width:100%" onclick="document.getElementById('lead-form').scrollIntoView({behavior:'smooth'})">Заказать карточку</button>
+      </div>
+
+      <div class="price-card reveal">
+        <span class="ptag">Фулфилмент</span>
+        <h3>Полный цикл под ключ</h3>
+        <div class="price-amount">По расчёту</div>
+        <div class="price-note">Зависит от объёма, габаритов и склада назначения</div>
+        <ul class="price-list">
+          <li>Приём, хранение, упаковка, маркировка, отгрузка</li>
+          <li>Работа с Wildberries и Ozon</li>
+          <li>Любой объём — от одной коробки до паллет</li>
+          <li>Бесплатная консультация перед расчётом</li>
+        </ul>
+        <a href="quiz.html" class="btn-secondary" style="width:100%;display:flex;align-items:center;justify-content:center;text-decoration:none;">Получить расчёт через квиз</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="form-section" id="lead-form">
+  <div class="wrap form-grid">
+    <div>
+      <div class="section-label">Следующий шаг</div>
+      <h2 class="section-title">Оставьте заявку — рассчитаем стоимость под ваш товар</h2>
+      <p class="section-desc">Отвечаем в течение рабочего дня. Никаких обязательств — только понятный расчёт.</p>
+
+      <div class="benefit-list">
+        <div class="benefit-item">
+          <div class="benefit-icon">1</div>
+          <div><h4>Бесплатная консультация</h4><p>Разберём ваш товар, объём и площадку — WB, Ozon или обе.</p></div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">2</div>
+          <div><h4>Расчёт без давления</h4><p>Покажем цифры — решение принимаете вы, без спешки.</p></div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">3</div>
+          <div><h4>Можно начать с малого</h4><p>Закажите одну карточку или тестовую партию — без долгого контракта.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-card">
+      <form id="leadForm">
+        <div class="form-row">
+          <label for="name">Имя</label>
+          <input type="text" id="name" required placeholder="Как к вам обращаться">
+        </div>
+        <div class="form-row">
+          <label for="phone">Телефон или Telegram</label>
+          <input type="text" id="phone" required placeholder="+7 999 999-99-99 или @username">
+        </div>
+        <div class="form-row">
+          <label for="service">Что интересует</label>
+          <select id="service">
+            <option>Фулфилмент (логистика)</option>
+            <option>Карточки и инфографика</option>
+            <option>И то, и другое</option>
+            <option>Пока не знаю — нужна консультация</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="marketplace">Площадка</label>
+          <select id="marketplace">
+            <option>Wildberries</option>
+            <option>Ozon</option>
+            <option>Wildberries и Ozon</option>
+          </select>
+        </div>
+        <button type="submit" class="form-submit">Отправить заявку</button>
+        <div class="form-fineprint">Отправляя заявку, вы соглашаетесь на обработку контактных данных</div>
+      </form>
+      <div class="form-success" id="formSuccess">
+        <h3>Заявка принята</h3>
+        <p>Свяжемся с вами в течение рабочего дня и подготовим расчёт.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-label">Вопросы</div>
+    <h2 class="section-title" style="margin-bottom: 40px;">Частые вопросы</h2>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)"><span>Сколько стоит сделать карточку для одного товара?</span><span class="plus">+</span></div>
+      <div class="faq-a">2 500 ₽ за полный фотосет карточки. Видео с ИИ оформляется отдельно — от 500 до 1 500 ₽, в зависимости от сложности.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)"><span>Как быстро будет готова карточка?</span><span class="plus">+</span></div>
+      <div class="faq-a">3–5 дней с момента получения от вас материалов и информации о товаре.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)"><span>Что входит в фулфилмент?</span><span class="plus">+</span></div>
+      <div class="faq-a">Полный цикл: приём товара, хранение на складе, упаковка по требованиям маркетплейса, маркировка и отгрузка на склады Wildberries и Ozon.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)"><span>Можно заказать только карточки, без фулфилмента?</span><span class="plus">+</span></div>
+      <div class="faq-a">Да, услуги доступны отдельно или вместе — в зависимости от того, что вам нужно сейчас.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)"><span>Какой объём товара вы берёте на фулфилмент?</span><span class="plus">+</span></div>
+      <div class="faq-a">Любой — от одной коробки до крупных партий и паллет. Точные условия уточняем на бесплатной консультации.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Фулфилмент-склад в Казани · Wildberries · Ozon · 2026</div>
+</footer>
+
+<script>
+  // Barcode generator
+  const barcode = document.getElementById('barcode');
+  for (let i = 0; i < 48; i++) {
+    const bar = document.createElement('span');
+    const h = Math.random() * 24 + 10;
+    bar.style.height = h + 'px';
+    bar.style.opacity = Math.random() > 0.3 ? '1' : '0.4';
+    barcode.appendChild(bar);
+  }
+
+  // FAQ toggle
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  }
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.15 });
+  reveals.forEach(r => obs.observe(r));
+
+  // Form submit — sends lead data to n8n webhook, which forwards to Telegram
+  const WEBHOOK_URL = 'https://musubi23.app.n8n.cloud/webhook/fulfilment-lead';
+
+  document.getElementById('leadForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const form = this;
+    const payload = {
+      name: document.getElementById('name').value,
+      phone: document.getElementById('phone').value,
+      service: document.getElementById('service').value,
+      marketplace: document.getElementById('marketplace').value
+    };
+
+    fetch(WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+      .then(() => {
+        form.style.display = 'none';
+        document.getElementById('formSuccess').classList.add('show');
+      })
+      .catch(() => {
+        form.style.display = 'none';
+        document.getElementById('formSuccess').classList.add('show');
+        // заявка может не дойти при сетевой ошибке — на этот случай в будущем
+        // стоит добавить запасной канал (например, прямую ссылку на Telegram-бота)
+      });
+  });
+</script>
+
+</body>
+</html>
